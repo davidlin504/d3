@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+    
+<p>figure</p>
+<p class="s1"></p>
+
+    <script>
+    var block = d3.select('.s1').selectAll('div').data(['H', 'E', 'L', 'L', 'O']).enter().append('div').text(function(text) {
+        return text;
+    }).style('width', function(d, i) {
+        return (i * 20 + 20) + 'px';
+    }).style('background','yellow')
+
+
+    ;
+    </script>
+</body>
+
+</html>

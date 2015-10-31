@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+   
+
+    </head>
+
+<body>
+
+<div class="s1">s1</div>
+<div class="diagram"></div>
+    <script>
+    //泡泡圖
+    var death_rate = [
+        ['越南', 24.26],
+        ['阿魯巴', 17.48],
+        ['關島', 10.01],
+        ['澳門', 5.84]
+    ];
+    var div_data_bind = d3.select(".diagram").selectAll("div").data(death_rate);
+    // variable in 
+    div_set = div_data_bind.enter().append("div");
+    div_data_bind.exit().remove();
+    div_set.text(function(d, i) {
+        return i + " / " + d[0];
+    });
+
+  div_set.style("height", "20px");
+    div_set.style("background", "red");
+    div_set.style("margin", "5px");
+    div_set.style("width", function(d, i) {
+        return (d[1] * 10)+"px";
+    }
+    
+    );
+
+    </script>
+
+    <div class="">
+	<h1>title</h1>
+</div>
+<div class="">
+	<h1>title</h1>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+</head>
+<body>
+<svg></svg>
+	<script>
+///長條圖 附legend
+  var color=d3.scale.category10();
+var d=[5,10,15,20,25];
+var rects=d3.select('svg').selectAll('rect').data(d).enter().append('rect')
+var bh=12, bu=10;
+rects.attr({
+x:0,
+y:function(d,i){return i*(bh+20)},
+width:function(d,i){return d*(bu)},
+height:bh,
+fill:function(d){return color(d)}
+
+
+
+});
+
+d3.select('svg').selectAll('text').data(d)
+.enter().append('text').attr({
+x:250,
+y:function(d,i){return i*(bh+20)+10},
+fill:'#111',
+'font-size':'8pt'
+})
+.text(function(d){return d;})
+
+	</script>
+</body>
+</html>
